@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Vacation Planner"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:paddingBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAddVacation"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Add New Vacation"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/buttonViewDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="View/Edit Last Vacation Entered"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/buttonEditVacation"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="View/Edit All Vacations"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/buttonViewAllVacations"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="View/Edit All Excursions"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/buttonDeleteVacation"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Delete a Vacation"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>
+
+

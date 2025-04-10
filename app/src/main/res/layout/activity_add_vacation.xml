@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a New Vacation"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp" />
+
+    <EditText
+        android:id="@+id/editTextVacationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter Vacation Title"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextHotel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter Hotel/Accommodation"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextStartDate"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter Start Date (YYYY-MM-DD)"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/editTextEndDate"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter End Date (YYYY-MM-DD)"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/buttonSaveVacation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Vacation"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Back to Main Menu"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
