@@ -69,9 +69,16 @@ public class Excursion implements Serializable {
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
-        LocalDate excursionDate = LocalDate.parse(date);
-        return title + "  (" + excursionDate.format(formatter) + ")";
+        try {
+            if (date == null || date.isEmpty()) {
+                return title + " (No Date)";
+            }
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+            LocalDate excursionDate = LocalDate.parse(date);
+            return title + " (" + excursionDate.format(formatter) + ")";
+        } catch (Exception e) {
+            return title + " (" + date + ")";
+        }
     }
 }
 
