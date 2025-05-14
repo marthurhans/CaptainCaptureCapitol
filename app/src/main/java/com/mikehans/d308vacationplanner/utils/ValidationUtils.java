@@ -1,4 +1,4 @@
-package com.mikehans.d308vacationplanner;
+package com.mikehans.d308vacationplanner.utils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;

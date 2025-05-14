@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Vacation;
+import com.mikehans.d308vacationplanner.utils.ValidationUtils;
 
 public class AddVacationActivity extends AppCompatActivity {
     @Override

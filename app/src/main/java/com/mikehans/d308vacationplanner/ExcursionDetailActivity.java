@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
 import com.mikehans.d308vacationplanner.models.Vacation;
+import com.mikehans.d308vacationplanner.utils.ValidationUtils;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
