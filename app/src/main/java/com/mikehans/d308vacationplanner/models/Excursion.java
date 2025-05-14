@@ -1,13 +1,22 @@
 package com.mikehans.d308vacationplanner.models;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-@Entity(tableName = "excursions")
+@Entity(
+        tableName = "excursions",
+        foreignKeys = @ForeignKey(
+                entity = Vacation.class,
+                parentColumns = "id",
+                childColumns = "vacationId",
+                onDelete = ForeignKey.CASCADE
+        )
+)
 public class Excursion implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
