@@ -22,6 +22,7 @@ public interface ExcursionDao {
     @Delete
     void delete(Excursion excursion);
 
+    // Get excursions linked to a specific vacation, sorted chronologically
     @Query("SELECT * FROM excursions WHERE vacationId = :vacationId ORDER BY date ASC")
     List<Excursion> getExcursionsForVacation(int vacationId);
 }

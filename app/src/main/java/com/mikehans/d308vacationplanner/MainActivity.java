@@ -14,6 +14,7 @@ import com.mikehans.d308vacationplanner.models.Vacation;
 
 import java.util.List;
 
+// TODO: Add export button to generate CSV and TXT reports for all vacations and excursions
 public class MainActivity extends AppCompatActivity {
     private VacationDatabase db;
 

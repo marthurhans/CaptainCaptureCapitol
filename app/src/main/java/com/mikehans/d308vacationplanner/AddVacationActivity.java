@@ -11,6 +11,7 @@ import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Vacation;
 import com.mikehans.d308vacationplanner.utils.ValidationUtils;
 
+// TODO: Replace manual date input with DatePickerDialog
 public class AddVacationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
