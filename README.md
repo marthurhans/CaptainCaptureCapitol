@@ -20,7 +20,7 @@ This mobile application allows users to create, manage, and track vacations alon
 ## Deployment
 The project is deployed via a signed APK and does not require cloud hosting. A final APK will be included for Capstone Task 4.
 
-## Status
+## Initial Status
 - Project imported from D308
 - App builds successfully
 - Emulator tested and functional
@@ -31,3 +31,13 @@ Michael Hans
 WGU ID: 001107400
 
 *This repository is for private academic use only and will not be made publicly accessible.*
+
+## Development Progress
+
+✅ Refactor Phase Completed (May 2025)
+- Verified and commented Vacation and Excursion models
+- Added Room foreign key with cascade behavior
+- Updated DAO query for date-sorted excursions
+- Moved utility classes into new utils package
+- Dropped TODO markers for DatePicker and Export features
+- App rebuilt and verified stable with working Room DB (v4)
