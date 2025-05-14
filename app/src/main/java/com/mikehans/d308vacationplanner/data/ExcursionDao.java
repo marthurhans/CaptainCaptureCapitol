@@ -22,7 +22,7 @@ public interface ExcursionDao {
     @Delete
     void delete(Excursion excursion);
 
-    @Query("SELECT * FROM excursions WHERE vacationId = :vacationId")
+    @Query("SELECT * FROM excursions WHERE vacationId = :vacationId ORDER BY date ASC")
     List<Excursion> getExcursionsForVacation(int vacationId);
 }
 
