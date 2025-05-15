@@ -1,6 +1,7 @@
 package com.mikehans.d308vacationplanner;
 
 import android.app.AlarmManager;
+import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,8 @@ import com.mikehans.d308vacationplanner.utils.ValidationUtils;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeParseException;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class ExcursionDetailActivity extends AppCompatActivity {
 
@@ -36,11 +39,30 @@ public class ExcursionDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_excursion_detail);
 
         excursionTitleEditText = findViewById(R.id.excursion_title_edittext);
-        excursionDateEditText = findViewById(R.id.excursion_date_edittext);
+        excursionDateEditText = findViewById(R.id.editTextExcursionDate);
         updateButton = findViewById(R.id.update_excursion_button);
         deleteButton = findViewById(R.id.delete_excursion_button);
         alertButton = findViewById(R.id.buttonSetExcursionAlert);
         vacationInfoTextView = findViewById(R.id.textViewVacationInfo);
+
+        final Calendar calendar = Calendar.getInstance();
+
+        excursionDateEditText.setOnClickListener(v -> {
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    ExcursionDetailActivity.this,
+                    (view, selectedYear, selectedMonth, selectedDay) -> {
+                        String formattedDate = String.format(Locale.getDefault(), "%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay);
+                        excursionDateEditText.setText(formattedDate);
+                    },
+                    year, month, day
+            );
+
+            datePickerDialog.show();
+        });
 
         db = VacationDatabase.getInstance(this);
 

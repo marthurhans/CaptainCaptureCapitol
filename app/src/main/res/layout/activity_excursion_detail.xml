@@ -17,10 +17,13 @@
         android:hint="Excursion Title" />
 
     <EditText
-        android:id="@+id/excursion_date_edittext"
+        android:id="@+id/editTextExcursionDate"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="YYYY-MM-DD" />
+        android:hint="Select date"
+        android:focusable="false"
+        android:cursorVisible="false"
+        android:inputType="none" />
 
     <Button
         android:id="@+id/update_excursion_button"
