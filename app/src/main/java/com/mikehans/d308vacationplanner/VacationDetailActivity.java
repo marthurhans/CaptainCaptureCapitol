@@ -1,6 +1,7 @@
 package com.mikehans.d308vacationplanner;
 
 import android.app.AlarmManager;
+import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -23,7 +24,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class VacationDetailActivity extends AppCompatActivity {
 
@@ -39,13 +42,50 @@ public class VacationDetailActivity extends AppCompatActivity {
         if (vacation != null) {
             EditText titleInput = findViewById(R.id.editTextTitle);
             EditText hotelInput = findViewById(R.id.editTextHotel);
-            EditText startInput = findViewById(R.id.editTextStartDate);
-            EditText endInput = findViewById(R.id.editTextEndDate);
+            EditText startInput = findViewById(R.id.editTextVacationStartDate);
+            EditText endInput = findViewById(R.id.editTextVacationEndDate);
             Button saveButton = findViewById(R.id.buttonSaveChanges);
             Button setAlertsButton = findViewById(R.id.buttonSetAlerts);
             Button shareButton = findViewById(R.id.buttonShare);
             Button addExcursionButton = findViewById(R.id.buttonAddExcursion);
             Button backButton = findViewById(R.id.buttonBack);
+
+            final Calendar calendar = Calendar.getInstance();
+
+            startInput.setOnClickListener(v -> {
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        VacationDetailActivity.this,
+                        (view, selectedYear, selectedMonth, selectedDay) -> {
+                            String formattedDate = String.format(Locale.getDefault(), "%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay);
+                            startInput.setText(formattedDate);
+                        },
+                        year, month, day
+                );
+
+                datePickerDialog.show();
+            });
+
+            endInput.setOnClickListener(v -> {
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        VacationDetailActivity.this,
+                        (view, selectedYear, selectedMonth, selectedDay) -> {
+                            String formattedDate = String.format(Locale.getDefault(), "%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay);
+                            endInput.setText(formattedDate);
+                        },
+                        year, month, day
+                );
+
+                datePickerDialog.show();
+            });
+
 
             titleInput.setText(vacation.getTitle());
             hotelInput.setText(vacation.getHotel());
