@@ -1,5 +1,6 @@
 package com.mikehans.d308vacationplanner;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -14,6 +15,9 @@ import com.mikehans.d308vacationplanner.models.Excursion;
 import com.mikehans.d308vacationplanner.models.Vacation;
 import com.mikehans.d308vacationplanner.utils.ValidationUtils;
 
+import java.util.Calendar;
+import java.util.Locale;
+
 public class ExcursionActivity extends AppCompatActivity {
 
     // TODO: Replace manual date input with DatePickerDialog
@@ -27,6 +31,26 @@ public class ExcursionActivity extends AppCompatActivity {
         Button addButton = findViewById(R.id.buttonAddExcursion);
         Button backButton = findViewById(R.id.buttonBack);
         TextView vacationInfo = findViewById(R.id.textViewVacationInfo);
+
+        final Calendar calendar = Calendar.getInstance();
+
+        dateInput.setOnClickListener(v -> {
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    ExcursionActivity.this,
+                    (view, selectedYear, selectedMonth, selectedDay) -> {
+                        String formattedDate = String.format(Locale.getDefault(), "%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay);
+                        dateInput.setText(formattedDate);
+                    },
+                    year, month, day
+            );
+
+            datePickerDialog.show();
+        });
+
 
         int vacationId = getIntent().getIntExtra("vacationId", -1);
         if (vacationId == -1) {
@@ -76,5 +100,4 @@ public class ExcursionActivity extends AppCompatActivity {
 
         backButton.setOnClickListener(v -> finish());
     }
-
 }

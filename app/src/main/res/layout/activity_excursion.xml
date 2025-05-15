@@ -21,8 +21,10 @@
         android:id="@+id/editTextExcursionDate"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Date (YYYY-MM-DD)"
-        android:inputType="date" />
+        android:hint="Select date"
+        android:focusable="false"
+        android:cursorVisible="false"
+        android:inputType="none" />
 
     <Button
         android:id="@+id/buttonAddExcursion"
