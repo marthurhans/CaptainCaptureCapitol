@@ -42,5 +42,11 @@ Refactor Phase Completed (May 2025)
 - Dropped TODO markers for DatePicker and Export features
 - App rebuilt and verified stable with working Room DB (v4)
 
-
+DatePicker Integration Completed (May 2025)
+- Replaced manual date input with DatePickerDialogs across all screens
+- Updated XML fields for start/end dates and excursion date to disable keyboard input
+- Connected DatePickers to existing vacation and excursion data fields
+- Preserved and reused existing validation logic with no format changes required
+- Confirmed consistent date format (YYYY-MM-DD) app-wide
+- Verified all pickers function as expected on emulator and physical device
 
