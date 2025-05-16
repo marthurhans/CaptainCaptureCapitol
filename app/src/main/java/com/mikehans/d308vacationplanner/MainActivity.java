@@ -9,10 +9,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
-import com.mikehans.d308vacationplanner.models.Excursion;
 import com.mikehans.d308vacationplanner.models.Vacation;
 import com.mikehans.d308vacationplanner.utils.ExportUtils;
 
+import java.io.File;
 import java.util.List;
 
 // TODO: Add export button to generate CSV and TXT reports for all vacations and excursions
@@ -24,9 +24,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        logAllExcursions();  // TEST CODE: activate method
+        // TEST CODE: activate method
         Log.d("EXPORT_TEST", ExportUtils.generateCsvReport(this)); //TEST CODE: LOG CSV
-        Log.d("EXPORT_TEST_TXT", ExportUtils.generatePlainTextReport(this));
+        Log.d("EXPORT_TEST_TXT", ExportUtils.generatePlainTextReport(this)); //TEST CODE: LOG TEXT
+        File file = ExportUtils.saveReportToFile
+                (this, ExportUtils.generatePlainTextReport(this), "test_report.txt");
+        Log.d("EXPORT_FILE", "Saved file: " + file.getAbsolutePath()); //TEST CODE: SAVE REPORT + LOG PATH
+
 
         db = VacationDatabase.getInstance(this);
 
@@ -72,15 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // TEST CODE: Logs excursions from vacation ID 999 to Logcat for manual debugging
-    private void logAllExcursions() {
-        VacationDatabase db = VacationDatabase.getInstance(this);
 
-        List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(999);
-
-        for (Excursion e : excursions) {
-            Log.d("Vacation_DB", "EXCURSION FOUND: " + e);
-        }
-    }
 }
 
 

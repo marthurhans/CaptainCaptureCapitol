@@ -7,6 +7,10 @@ import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
 import com.mikehans.d308vacationplanner.models.Vacation;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class ExportUtils {
@@ -74,4 +78,24 @@ public class ExportUtils {
         }
         return textBuilder.toString();
     }
+
+    public static File saveReportToFile(Context context, String content, String filename) {
+        File directory = new File(context.getFilesDir(), "reports");
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        File reportFile = new File(directory, filename);
+
+        try (FileOutputStream fos = new FileOutputStream(reportFile)) {
+            fos.write(content.getBytes(StandardCharsets.UTF_8));
+            fos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return reportFile;
+    }
+
 }
