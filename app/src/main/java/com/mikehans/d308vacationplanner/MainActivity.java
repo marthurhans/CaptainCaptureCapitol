@@ -1,13 +1,15 @@
 package com.mikehans.d308vacationplanner;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Vacation;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Button addVacationButton = findViewById(R.id.buttonAddVacation);
         Button viewAllButton = findViewById(R.id.buttonViewAllVacations);
         Button editVacationButton = findViewById(R.id.buttonEditVacation);
+        Button exportButton = findViewById(R.id.buttonExportReport);
 
         deleteVacationButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, DeleteVacationActivity.class);
@@ -69,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        Button exportButton = findViewById(R.id.buttonExportReport);
-
         exportButton.setOnClickListener(v -> {
             new AlertDialog.Builder(this)
                     .setTitle("Choose Report Format")
@@ -90,9 +91,24 @@ public class MainActivity extends AppCompatActivity {
                         if (file != null) {
                             Log.d("EXPORT_UI", "Report saved: " + file.getAbsolutePath());
                             Toast.makeText(this, "Report saved successfully!", Toast.LENGTH_SHORT).show();
+
+                            Uri uri = FileProvider.getUriForFile(
+                                    this,
+                                    getPackageName() + ".fileprovider",
+                                    file
+                            );
+
+                            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                            shareIntent.setType("text/plain");
+                            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                            startActivity(Intent.createChooser(shareIntent, "Share report via"));
+
                         } else {
                             Toast.makeText(this, "Failed to save report.", Toast.LENGTH_SHORT).show();
                         }
+
                     })
                     .show();
         });
