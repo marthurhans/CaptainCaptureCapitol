@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         logAllExcursions();  // TEST CODE: activate method
         Log.d("EXPORT_TEST", ExportUtils.generateCsvReport(this)); //TEST CODE: LOG CSV
-
+        Log.d("EXPORT_TEST_TXT", ExportUtils.generatePlainTextReport(this));
 
         db = VacationDatabase.getInstance(this);
 

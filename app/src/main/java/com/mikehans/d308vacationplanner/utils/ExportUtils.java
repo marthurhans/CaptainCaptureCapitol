@@ -47,5 +47,31 @@ public class ExportUtils {
         return "\"" + value.replace("\"", "\"\"") + "\"";
     }
 
+    public static String generatePlainTextReport(Context context) {
+        VacationDatabase db = VacationDatabase.getInstance(context);
+        List<Vacation> vacations = db.vacationDao().getAllVacations();
 
+        StringBuilder textBuilder = new StringBuilder();
+
+        for (Vacation vacation : vacations) {
+            textBuilder.append("Vacation: ").append(vacation.getTitle()).append("\n");
+            textBuilder.append("Hotel: ").append(vacation.getHotel()).append("\n");
+            textBuilder.append("Start: ").append(vacation.getStartDate())
+                    .append(" | End: ").append(vacation.getEndDate()).append("\n\n");
+
+            List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
+
+            if (excursions.isEmpty()) {
+                textBuilder.append("No current excursions!\n");
+            } else {
+                for (Excursion e : excursions) {
+                    textBuilder.append("- ").append(e.getTitle())
+                            .append(" (").append(e.getDate()).append(")\n");
+                }
+            }
+
+            textBuilder.append("\n-------------------------------\n\n");
+        }
+        return textBuilder.toString();
+    }
 }
