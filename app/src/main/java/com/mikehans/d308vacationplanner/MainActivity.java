@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                     })
                     .show();
         });
-
     }
 
     private void runDebugLogs(boolean enabled) {

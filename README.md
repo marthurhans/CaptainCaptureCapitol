@@ -46,7 +46,16 @@ DatePicker Integration Completed (May 2025)
 - Replaced manual date input with DatePickerDialogs across all screens
 - Updated XML fields for start/end dates and excursion date to disable keyboard input
 - Connected DatePickers to existing vacation and excursion data fields
-- Preserved and reused existing validation logic with no format changes required
+- Preserved and reused existing validation logic
 - Confirmed consistent date format (YYYY-MM-DD) app-wide
 - Verified all pickers function as expected on emulator and physical device
 
+Export Feature Completed (May 2025)
+- Implemented full reporting system with both CSV and plain text output options
+- Added `ExportUtils` with report generation and file-saving logic
+- Reports include all vacations and their associated excursions
+- Confirmed proper formatting and coverage, including vacations with no excursions
+- Introduced save-to-file functionality using internal storage (`/files/reports/`)
+- Added UI export button on main screen with AlertDialog to choose format
+- Enabled sharing reports via Android's share sheet (Gmail, Drive, etc.)
+- Verified output paths via Logcat and manually accessed report files in emulator
