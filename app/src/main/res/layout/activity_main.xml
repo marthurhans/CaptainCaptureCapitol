@@ -43,6 +43,13 @@
         android:layout_marginTop="8dp" />
 
     <Button
+        android:id="@+id/buttonExportReport"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Export CSV or Text Report"
+        android:layout_marginTop="8dp" />
+
+    <Button
         android:id="@+id/buttonDeleteVacation"
         android:layout_width="wrap_content"
         android:layout_height="48dp"

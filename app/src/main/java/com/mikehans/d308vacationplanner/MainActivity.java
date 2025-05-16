@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Vacation;
@@ -66,6 +67,34 @@ public class MainActivity extends AppCompatActivity {
         editVacationButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SelectVacationActivity.class);
             startActivity(intent);
+        });
+
+        Button exportButton = findViewById(R.id.buttonExportReport);
+
+        exportButton.setOnClickListener(v -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("Choose Report Format")
+                    .setItems(new String[]{"CSV", "Plain Text"}, (dialog, which) -> {
+                        String content;
+                        String filename;
+
+                        if (which == 0) {
+                            content = ExportUtils.generateCsvReport(this);
+                            filename = "vacation_report.csv";
+                        } else {
+                            content = ExportUtils.generatePlainTextReport(this);
+                            filename = "vacation_report.txt";
+                        }
+
+                        File file = ExportUtils.saveReportToFile(this, content, filename);
+                        if (file != null) {
+                            Log.d("EXPORT_UI", "Report saved: " + file.getAbsolutePath());
+                            Toast.makeText(this, "Report saved successfully!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, "Failed to save report.", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .show();
         });
 
     }
