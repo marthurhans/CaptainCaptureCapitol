@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
 import com.mikehans.d308vacationplanner.models.Vacation;
+import com.mikehans.d308vacationplanner.utils.ExportUtils;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         logAllExcursions();  // TEST CODE: activate method
+        Log.d("EXPORT_TEST", ExportUtils.generateCsvReport(this)); //TEST CODE: LOG CSV
+
 
         db = VacationDatabase.getInstance(this);
 
