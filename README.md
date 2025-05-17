@@ -53,7 +53,7 @@ DatePicker Integration Completed (May 2025)
 Export Feature Completed (May 2025)
 - Implemented full reporting system with both CSV and plain text output options
 - Added `ExportUtils` with report generation and file-saving logic
-- Reports include all vacations and their associated excursions
+  - Reports include all vacations and their associated excursions
 - Confirmed proper formatting and coverage, including vacations with no excursions
 - Introduced save-to-file functionality using internal storage (`/files/reports/`)
 - Added UI export button on main screen with AlertDialog to choose format
