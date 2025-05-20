@@ -52,14 +52,12 @@ public class VacationGroupAdapter extends BaseAdapter {
         Vacation vacation = group.vacation;
         List<Excursion> excursions = group.excursions;
 
-        // Populate vacation card
         TextView titleView = convertView.findViewById(R.id.textViewVacationTitle);
         TextView datesView = convertView.findViewById(R.id.textViewVacationDates);
 
         titleView.setText(vacation.getTitle());
         datesView.setText(vacation.getStartDate() + " – " + vacation.getEndDate());
 
-        // Populate excursion list
         LinearLayout excursionContainer = convertView.findViewById(R.id.excursionContainer);
         excursionContainer.removeAllViews(); // prevent stacking on reuse
 

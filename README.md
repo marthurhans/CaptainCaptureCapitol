@@ -67,3 +67,12 @@ Visual Polish & Launch Experience Completed (May 2025)
 - Added a splash screen at launch that shows the app’s logo before loading the main menu
 - Polished navigation with visible buttons and headings across all major screens
 - Added a confirmation popup before deleting vacations to prevent accidental data loss
+
+Unit Testing Completed (May 2025)
+- Created four test cases to validate app functionality
+- Used `ValidationUtilsTest` to verify date format validation and range checking
+- Added `ExportUtilsTest` to confirm formatting logic for generated reports
+- Built `VacationDaoTest` to insert and retrieve vacation data using supplied Room database
+- Confirmed test execution in both `test/` and `androidTest/` environments
+- Captured passing test result screenshots for Task 3 documentation
+
