@@ -91,9 +91,16 @@ public class DeleteVacationActivity extends AppCompatActivity {
                 deleteButton.setTextColor(getColor(android.R.color.white));
                 deleteButton.setBackgroundColor(getColor(android.R.color.holo_red_dark));
                 deleteButton.setOnClickListener(v -> {
-                    db.vacationDao().delete(vacation);
-                    Toast.makeText(this, "Vacation deleted!", Toast.LENGTH_SHORT).show();
-                    displayVacations();
+                    new androidx.appcompat.app.AlertDialog.Builder(this)
+                            .setTitle("Confirm Deletion")
+                            .setMessage("Are you sure you want to delete this vacation?")
+                            .setPositiveButton("Delete", (dialog, which) -> {
+                                db.vacationDao().delete(vacation);
+                                Toast.makeText(this, "Vacation deleted!", Toast.LENGTH_SHORT).show();
+                                displayVacations();
+                            })
+                            .setNegativeButton("Cancel", null)
+                            .show();
                 });
                 innerLayout.addView(deleteButton);
             } else {
