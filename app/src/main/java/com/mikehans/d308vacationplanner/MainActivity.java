@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         viewAllButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AllVacationsActivity.class);
+            Intent intent = new Intent(MainActivity.this, AllExcursionsActivity.class);
             startActivity(intent);
         });
 

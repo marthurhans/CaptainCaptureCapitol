@@ -15,48 +15,63 @@
         android:textStyle="bold"
         android:paddingBottom="20dp"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonAddVacation"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="Add New Vacation"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true" />
 
-    <Button
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonViewDetails"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="View/Edit Last Vacation Entered"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonEditVacation"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="View/Edit All Vacations"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonViewAllVacations"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="View/Edit/Add Excursions"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonExportReport"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="Export CSV or Text Report"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonDeleteVacation"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="Delete a Vacation"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
         android:backgroundTint="@color/black"
-        android:layout_marginTop="8dp" />
+        android:textColor="@android:color/white" />
+
 
 </LinearLayout>
 

@@ -1,6 +1,5 @@
 package com.mikehans.d308vacationplanner;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
@@ -8,17 +7,18 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
+import com.mikehans.d308vacationplanner.models.Excursion;
 import com.mikehans.d308vacationplanner.models.Vacation;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
-public class AllVacationsActivity extends AppCompatActivity {
+public class AllExcursionsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_vacations);
+        setContentView(R.layout.activity_all_excursions);
 
         loadVacations();
 
@@ -71,11 +71,11 @@ public class AllVacationsActivity extends AppCompatActivity {
 //            Intent intent;
 //
 //            if (selectedExcursion == null && displayText.contains("Add Excursion")) {
-//                intent = new Intent(AllVacationsActivity.this, ExcursionActivity.class);
+//                intent = new Intent(AllExcursionsActivity.this, ExcursionActivity.class);
 //                intent.putExtra("vacationId", selectedVacation.getId());
 //                startActivity(intent);
 //            } else if (selectedExcursion != null) {
-//                intent = new Intent(AllVacationsActivity.this, ExcursionDetailActivity.class);
+//                intent = new Intent(AllExcursionsActivity.this, ExcursionDetailActivity.class);
 //                intent.putExtra("excursion", selectedExcursion);
 //                startActivity(intent);
 //            }
@@ -87,16 +87,16 @@ public class AllVacationsActivity extends AppCompatActivity {
         VacationDatabase db = VacationDatabase.getInstance(this);
 
         List<Vacation> vacationList = db.vacationDao().getAllVacations();
+        List<VacationGroup> groups = new ArrayList<>();
 
-        VacationAdapter adapter = new VacationAdapter(this, vacationList);
+        for (Vacation vacation : vacationList) {
+            List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
+            groups.add(new VacationGroup(vacation, excursions));
+        }
+
+        VacationGroupAdapter adapter = new VacationGroupAdapter(this, groups);
         listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            Vacation selectedVacation = vacationList.get(position);
-            Intent intent = new Intent(AllVacationsActivity.this, VacationDetailActivity.class);
-            intent.putExtra("vacationId", selectedVacation.getId());
-            startActivity(intent);
-        });
     }
+
 }
 
