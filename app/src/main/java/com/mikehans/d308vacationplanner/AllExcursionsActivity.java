@@ -32,56 +32,6 @@ public class AllExcursionsActivity extends AppCompatActivity {
         loadVacations();
     }
 
-//    private void loadExcursions() {
-//        ListView listView = findViewById(R.id.listViewAllVacations);
-//        VacationDatabase db = VacationDatabase.getInstance(this);
-//
-//        List<Vacation> vacations = db.vacationDao().getAllVacations();
-//        List<Excursion> allExcursions = new ArrayList<>();
-//        List<Vacation> associatedVacations = new ArrayList<>();
-//        List<String> displayList = new ArrayList<>();
-//
-//        for (Vacation vacation : vacations) {
-//            List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
-//
-//            for (Excursion excursion : excursions) {
-//                allExcursions.add(excursion);
-//                associatedVacations.add(vacation);
-//                displayList.add(vacation.getTitle() + " - " + excursion.getTitle()
-//                        + " (" + excursion.getDate() + ") \n++ Edit/Delete Excursion ++");
-//            }
-//
-//            displayList.add(vacation.getTitle() + " \n++ Add Excursion ++");
-//            allExcursions.add(null);
-//            associatedVacations.add(vacation);
-//        }
-//
-//        if (displayList.isEmpty()) {
-//            displayList.add("No vacations or excursions found.");
-//        }
-//
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, displayList);
-//        listView.setAdapter(adapter);
-//
-//        listView.setOnItemClickListener((parent, view, position, id) -> {
-//            Excursion selectedExcursion = allExcursions.get(position);
-//            Vacation selectedVacation = associatedVacations.get(position);
-//            String displayText = displayList.get(position);
-//
-//            Intent intent;
-//
-//            if (selectedExcursion == null && displayText.contains("Add Excursion")) {
-//                intent = new Intent(AllExcursionsActivity.this, ExcursionActivity.class);
-//                intent.putExtra("vacationId", selectedVacation.getId());
-//                startActivity(intent);
-//            } else if (selectedExcursion != null) {
-//                intent = new Intent(AllExcursionsActivity.this, ExcursionDetailActivity.class);
-//                intent.putExtra("excursion", selectedExcursion);
-//                startActivity(intent);
-//            }
-//        });
-//    }
-
     private void loadVacations() {
         ListView listView = findViewById(R.id.listViewAllVacations);
         VacationDatabase db = VacationDatabase.getInstance(this);

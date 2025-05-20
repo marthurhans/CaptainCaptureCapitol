@@ -36,7 +36,6 @@ public class Vacation implements Serializable {
     public String getEndDate() { return endDate; }
     public void setEndDate(String endDate) { this.endDate = endDate; }
 
-    // Used for debugging and UI display of vacation summary
     @Override
     public String toString() {
         return "Vacation{" +

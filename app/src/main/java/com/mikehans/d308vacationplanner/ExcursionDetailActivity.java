@@ -123,7 +123,6 @@ public class ExcursionDetailActivity extends AppCompatActivity {
         String vacationStart = associatedVacation.getStartDate();
         String vacationEnd = associatedVacation.getEndDate();
 
-        // Do not allow excursion update unless in vacation range
         if (ValidationUtils.isBefore(newDate, vacationStart) || ValidationUtils.isAfter(newDate, vacationEnd)) {
             Toast.makeText(this, "Excursion date must be within vacation range (" +
                     vacationStart + " to " + vacationEnd + ").", Toast.LENGTH_LONG).show();

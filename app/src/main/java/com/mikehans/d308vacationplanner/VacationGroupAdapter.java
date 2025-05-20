@@ -95,8 +95,6 @@ public class VacationGroupAdapter extends BaseAdapter {
             excursionContainer.addView(excursionCard);
         }
 
-
-        // Add Excursion Button
         Button addButton = convertView.findViewById(R.id.buttonAddExcursion);
         addButton.setOnClickListener(v -> {
             Intent intent = new Intent(context, ExcursionActivity.class);

@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-// This sets up Room to delete all excursions if their parent vacation is deleted
 @Entity(
         tableName = "excursions",
         foreignKeys = @ForeignKey(
@@ -25,7 +24,6 @@ public class Excursion implements Serializable {
 
     private String title;
     private String date;
-    // Links this excursion to its parent vacation
     private int vacationId;
 
     public Excursion() {

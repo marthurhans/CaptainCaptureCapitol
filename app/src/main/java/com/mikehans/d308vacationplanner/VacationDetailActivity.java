@@ -213,7 +213,7 @@ public class VacationDetailActivity extends AppCompatActivity {
         );
 
         // TEST CODE: toggle true to test alerts
-        boolean testMode = false;
+        boolean testMode = true;
 
         long triggerAtMillis;
         if (testMode) {
