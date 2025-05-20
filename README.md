@@ -39,7 +39,7 @@ Refactor Phase Completed (May 2025)
 - Added Room foreign key with cascade behavior
 - Updated DAO query for date-sorted excursions
 - Moved utility classes into new utils package
-- Dropped TODO markers for DatePicker and Export features
+- Inserted TODO markers for DatePicker and Export features
 - App rebuilt and verified stable with working Room DB (v4)
 
 DatePicker Integration Completed (May 2025)
@@ -59,3 +59,11 @@ Export Feature Completed (May 2025)
 - Added UI export button on main screen with AlertDialog to choose format
 - Enabled sharing reports via Android's share sheet (Gmail, Drive, etc.)
 - Verified output paths via Logcat and manually accessed report files in emulator
+
+Visual Polish & Launch Experience Completed (May 2025)
+- Replaced old vacation and excursion lists with modern CardViews and better layout spacing
+- Made all screens visually consistent using ripple effects, elevation, and Material-style buttons
+- Replaced the launcher icon with a custom D424 project logo
+- Added a splash screen at launch that shows the app’s logo before loading the main menu
+- Polished navigation with visible buttons and headings across all major screens
+- Added a confirmation popup before deleting vacations to prevent accidental data loss
