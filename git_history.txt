@@ -1,0 +1,35 @@
+ffc4ee5 2025-05-20 simple formatting before presentation
+5454fe0 2025-05-20 STABLE: README updated for Test suites and final phase of project
+621804b 2025-05-20 STABLE: Add unit and Android DAO tests for validation and database logic
+0a54f5b 2025-05-20 STABLE: Final visual upgrade complete with splash screen, logo, and universal Cardview reformatting
+ee92f65 2025-05-20 Add splash screen with project logo before main menu
+b1dc10e 2025-05-19 Set app icon for launcher using D424 logo
+f624dfa 2025-05-19 Add confirmation dialog before deleting a vacation
+ef0715e 2025-05-19 Add same CardView and ripple to DeleteVaction
+cda0bb3 2025-05-19 Refactor vacation and excursion screens with CardViews and ripple effects
+e757b21 2025-05-19 Refactor AllVacationsActivity to use new VacationAdapter and CardViews
+3a40f8b 2025-05-17 Theme polish attempt with background/font - no visible change yet
+f435b07 2025-05-16 STABLE: Export reports with share functionality and README update
+3de9627 2025-05-16 Add share logic for exporting reports to external apps
+7f100de 2025-05-16 Add export button with format options
+6f76d2e 2025-05-16 Refactor export logging into toggleable boolean debug method
+e38f730 2025-05-16 Add saveReportToFile method to ExportUtils to write reports to internal file storage
+689ee1d 2025-05-16 Add plain text report generation to ExportUtils and verify via Logcat
+5123dac 2025-05-16 Add CSV export logic to ExportUtils and verify via Logcat
+b3edd22 2025-05-15 STABLE: Verify app after DatePicker integration and update README
+8a74edc 2025-05-15 Add DatePickerDialog to Excursion detail screen
+a063c49 2025-05-15 Add DatePickerDialog to all vacation and excursion screens
+acdbecc 2025-05-15 Add DatePickerDialog to Add Vacation screen
+b6c20b0 2025-05-15 Add working DatePickerDialog to Excursion screen
+7f27252 2025-05-14 STABLE: App verified working after refactor and README updated
+f0288be 2025-05-14 Clean up entity, DAO, and structure for future code - plus add TODOs
+3ed0e4e 2025-05-14 Make Excursion.toString() safer for bad or missing dates
+9d85c5b 2025-05-14 Move ValidationUtils to utils package and create ExportUtils
+7ee8bd4 2025-05-14 Update ExcursionDao to return excursions sorted by date
+3286e78 2025-05-14 Add foreign key to Excursion entity for Vacation linkage
+413d89e 2025-05-14 Task 3 Start: Stable D308 baseline confirmed
+ac3fba6 2025-04-10 Initial commit of Capstone with updated README
+9fc6ffc 2024-07-17 Corrected mispelling
+808c354 2023-02-27 Added Branching instructions to README
+5c6cab3 2023-02-13 Added WGU Template README.md
+835201f 2023-02-13 Initial commit
